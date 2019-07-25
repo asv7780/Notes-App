@@ -6,6 +6,13 @@ import {AppComponent} from './app.component';
 import {NotesComponent} from './notes/notes.component';
 import {BaseComponentsModule} from './notes/base-components/base-components.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
+
+
+import {environment} from '../environments/environment';
+
+
 
 
 @NgModule({
@@ -17,8 +24,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         BrowserModule,
         AppRoutingModule,
         BaseComponentsModule,
-        BrowserAnimationsModule
-
+        BrowserAnimationsModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

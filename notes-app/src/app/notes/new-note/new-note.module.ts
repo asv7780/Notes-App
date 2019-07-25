@@ -3,7 +3,14 @@ import {CommonModule} from '@angular/common';
 import {NewNoteComponent} from './new-note.component';
 import {RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
-import {MatButtonModule, MatFormFieldModule, MatInputModule, MatRadioModule} from '@angular/material';
+import {
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatProgressSpinnerModule,
+    MatIconModule
+} from '@angular/material';
 
 
 @NgModule({
@@ -16,8 +23,10 @@ import {MatButtonModule, MatFormFieldModule, MatInputModule, MatRadioModule} fro
         ReactiveFormsModule,
         MatRadioModule,
         MatFormFieldModule,
+        MatProgressSpinnerModule,
         MatInputModule,
-        MatButtonModule
+        MatButtonModule,
+        MatIconModule
     ]
 })
 export class NewNoteModule {

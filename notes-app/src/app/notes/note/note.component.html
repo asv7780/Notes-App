@@ -1,3 +1,11 @@
-<p>
-  note works!
-</p>
+<h1>
+  Note
+</h1>
+<p>Name: {{model | propertyView: 'name'}}</p>
+<p>Content: {{model | propertyView: 'content'}}</p>
+<div *ngFor="let comment of model.comments">
+  <p>{{comment | propertyView: 'author'}}</p>
+  <p>{{comment | propertyView: 'content'}}</p>
+  <p>{{comment.created | date: dateFormat}}</p>
+</div>
+<app-comment (onCommentCreated)="onCommentCreated($event)"></app-comment>

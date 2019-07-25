@@ -1,0 +1,35 @@
+<form [formGroup]="noteForm" (ngSubmit)="onSubmit(noteForm.value)">
+  <div class="form-group">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input type="text"
+             matInput
+             name="name"
+             formControlName="name"
+             placeholder="Type name..."
+             required>
+      <mat-error *ngIf="taskForm.get('name').hasError('required')">
+        Field required
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <mat-label>Content</mat-label>
+      <textarea class="col-6" matInput
+                name="content"
+                formControlName="content"
+                placeholder="Type content..."
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="10"
+                required>
+                                            </textarea>
+      <mat-error *ngIf="noteForm.get('content').hasError('required')">
+        Field required
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="save-btn">
+    <button type="submit" mat-stroked-button color="primary" [disabled]="isSubmitting"><mat-spinner *ngIf="isSubmitting" [diameter]="25"></mat-spinner> <mat-icon>sd_card</mat-icon> Save </button>
+  </div>
+</form>
