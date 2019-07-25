@@ -1,0 +1,20 @@
+header {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    //background: #0d47a1;
+    .nav-button {
+      margin-right: 15px;
+      margin-left: 15px;
+    }
+  }
+  .nav-item {
+    text-decoration: none;
+    color: #0f0f0f;
+    font-size: 15px;
+  }
+
+
+
+}

@@ -1,0 +1,16 @@
+header .navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+header .navbar .nav-button {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+header .nav-item {
+  text-decoration: none;
+  color: #0f0f0f;
+  font-size: 15px;
+}
+
+/*# sourceMappingURL=header.component.css.map */
