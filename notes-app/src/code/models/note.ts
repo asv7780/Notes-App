@@ -15,6 +15,14 @@ export class Note {
             localStorage.setItem('storageType', this.storageType.toString());
         }
     }
+
+  public merge(note: Note): Note {
+    Object.getOwnPropertyNames(note).forEach(prop => {
+      this[prop] = note[prop];
+    });
+
+    return this;
+  }
 }
 
 export enum StorageType {
