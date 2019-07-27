@@ -1,0 +1,28 @@
+form {
+  max-width: 419px;
+  width: 100%;
+  margin: 10px auto;
+  border-radius: 4px;
+  border: 1px solid gray;
+
+  h3 {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+.selection {
+  height: 35px;
+  display: flex;
+  margin: 5px;
+  justify-content: flex-end;
+}
+mat-select {
+  max-width: 125px;
+}

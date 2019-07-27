@@ -1,12 +1,65 @@
-table {
+.container {
+  max-width: 800px;
   width: 100%;
+  margin: 10px auto;
+
+  h3 {
+    text-align: center;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .note-item-titles, .note-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 5px;
+
+    .buttons {
+      display: flex;
+      max-width: 207px;
+      width: 100%;
+      justify-content: space-between;
+
+      .delete, .edit {
+        width: 50%;
+        text-align: center;
+      }
+
+      button {
+        margin: 3px;
+      }
+    }
+  }
+
+  .note-item-titles {
+    border-bottom: 2px solid black;
+    color: black;
+    font-size: 16px;
+  }
+
+  .note-item {
+    border-radius: 4px;
+    align-items: center;
+    border: 1px solid gray;
+  }
+
+  .author {
+    min-width: 100px;
+    max-width: 250px;
+    width: 100%;
+  }
+
+  .content {
+    min-width: 400px;
+  }
+
+  .add-btn {
+    margin-left: 10px;
+  }
+
 }
 
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
-
-td, th {
-  width: 25%;
-}

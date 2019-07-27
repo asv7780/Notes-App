@@ -1,35 +1,58 @@
-<form [formGroup]="noteForm" (ngSubmit)="onSubmit(noteForm.value)">
-  <div class="form-group">
-    <mat-form-field>
-      <mat-label>Name</mat-label>
-      <input type="text"
-             matInput
-             name="name"
-             formControlName="name"
-             placeholder="Type name..."
-             required>
-      <mat-error *ngIf="taskForm.get('name').hasError('required')">
-        Field required
-      </mat-error>
-    </mat-form-field>
-  </div>
-  <div class="form-group">
-    <mat-form-field>
-      <mat-label>Content</mat-label>
-      <textarea class="col-6" matInput
-                name="content"
-                formControlName="content"
-                placeholder="Type content..."
-                cdkTextareaAutosize
-                cdkAutosizeMinRows="10"
-                required>
-                                            </textarea>
-      <mat-error *ngIf="noteForm.get('content').hasError('required')">
-        Field required
-      </mat-error>
-    </mat-form-field>
-  </div>
-  <div class="save-btn">
-    <button type="submit" mat-stroked-button color="primary" [disabled]="isSubmitting"><mat-spinner *ngIf="isSubmitting" [diameter]="25"></mat-spinner> <mat-icon>sd_card</mat-icon> Save </button>
-  </div>
-</form>
+<div class="container">
+		<form [formGroup]="noteForm" #form="ngForm" (ngSubmit)="onSubmit(noteForm.value)">
+				<h3>New note</h3>
+				<hr>
+				<div class="form-group">
+						<mat-form-field>
+								<mat-label>Name</mat-label>
+								<label>
+										<input type="text"
+													 matInput
+													 name="name"
+													 formControlName="name"
+													 placeholder="Type name..."
+													 required>
+								</label>
+								<mat-error *ngIf="noteForm.get('name').hasError('required')">
+										Field required
+								</mat-error>
+						</mat-form-field>
+				</div>
+				<div class="form-group">
+						<mat-form-field>
+								<mat-label>Content</mat-label>
+								<label>
+<textarea class="col-6" matInput
+					name="content"
+					formControlName="content"
+					placeholder="Type content..."
+					cdkTextareaAutosize
+					cdkAutosizeMinRows="10"
+					required>
+</textarea>
+								</label>
+								<mat-error *ngIf="noteForm.get('content').hasError('required')">
+										Field required
+								</mat-error>
+						</mat-form-field>
+				</div>
+				<div class="selection">
+						<mat-select formControlName="storageType" placeholder="Save to..." >
+								<mat-option value="localStorage">Local Storage</mat-option>
+								<mat-option value="firebase">Firebase</mat-option>
+						</mat-select>
+				</div>
+
+				<div class="buttons">
+						<button title="clear" mat-stroked-button (click)="form.reset()"><mat-icon>cancel</mat-icon> Clear </button>
+						<button title="toList" mat-stroked-button [routerLink]="['/notes-list']" ><mat-icon>launch</mat-icon> To
+								notes
+						</button>
+						<button type="submit" mat-stroked-button [disabled]="isSubmitting"><mat-spinner
+									*ngIf="isSubmitting"
+																																														[diameter]="25"></mat-spinner> <mat-icon>sd_card</mat-icon> Save to...</button>
+
+				</div>
+		</form>
+</div>
+

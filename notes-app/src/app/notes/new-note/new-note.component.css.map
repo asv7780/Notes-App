@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"new-note.component.css"}
+{"version":3,"sourceRoot":"","sources":["new-note.component.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;;;AAIJ;EACE;EACA;EACA;EACA;;;AAEF;EACE;EACA;EACA;EACA;;;AAEF;EACE","file":"new-note.component.css"}

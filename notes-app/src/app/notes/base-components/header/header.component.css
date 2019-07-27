@@ -3,13 +3,12 @@ header .navbar {
   flex-direction: row;
   align-items: center;
 }
-header .navbar .nav-button {
+header .navbar button {
   margin-right: 15px;
   margin-left: 15px;
+  border: 1px solid;
 }
 header .nav-item {
-  text-decoration: none;
-  color: #0f0f0f;
   font-size: 15px;
 }
 

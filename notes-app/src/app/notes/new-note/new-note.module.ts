@@ -9,8 +9,9 @@ import {
     MatInputModule,
     MatRadioModule,
     MatProgressSpinnerModule,
-    MatIconModule
+    MatIconModule, MatSelectModule
 } from '@angular/material';
+import {NoteService} from '../../../code/services/note.service';
 
 
 @NgModule({
@@ -26,8 +27,10 @@ import {
         MatProgressSpinnerModule,
         MatInputModule,
         MatButtonModule,
-        MatIconModule
-    ]
+        MatIconModule,
+        MatSelectModule
+    ],
+    providers: [NoteService]
 })
 export class NewNoteModule {
 }

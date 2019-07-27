@@ -16,12 +16,16 @@ const routes: Routes = [
                 loadChildren: './notes/new-note/new-note.module#NewNoteModule'
             },
             {
-                path: 'note',
+                path: 'note/:id',
                 loadChildren: './notes/note/note.module#NoteModule'
             },
             {
                 path: 'notes-list',
                 loadChildren: './notes/notes-list/notes-list.module#NotesListModule'
+            },
+            {
+                path: 'edit-note/:id',
+                loadChildren: './notes/edit-note/edit-note.module#EditNoteModule'
             }
         ],
     },

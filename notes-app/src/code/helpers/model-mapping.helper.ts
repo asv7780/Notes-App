@@ -9,7 +9,7 @@ declare global {
 
 class ModelMappingHelper {
   public static mapToModel<T>(form: any): T {
-    var obj = <T> {};
+    var obj = {} as T;
     Object.getOwnPropertyNames(obj).forEach(prop => {
       if (form[prop]) {
         obj[prop] = form[prop];
@@ -34,4 +34,4 @@ class ModelMappingHelper {
 Object.mapToModel = ModelMappingHelper.mapToModel;
 Object.getModelFromRoute = ModelMappingHelper.getModelFromRoute;
 
-export {}
+export {};
