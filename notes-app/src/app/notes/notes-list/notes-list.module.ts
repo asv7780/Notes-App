@@ -9,13 +9,13 @@ import {
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatOptionModule,
     MatPaginatorModule,
+    MatSelectModule,
     MatSortModule,
     MatTableModule
 } from '@angular/material';
 import {NoteService} from '../../../code/services/note.service';
-import {EditNoteComponent} from '../edit-note/edit-note.component';
-import {EditNoteModule} from '../edit-note/edit-note.module';
 
 @NgModule({
     declarations: [NotesListComponent],
@@ -32,6 +32,8 @@ import {EditNoteModule} from '../edit-note/edit-note.module';
         MatButtonModule,
         MatIconModule,
         MatDialogModule,
+        MatOptionModule,
+        MatSelectModule,
         // EditNoteModule
     ],
     providers: [NoteService,

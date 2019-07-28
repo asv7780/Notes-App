@@ -1,4 +1,10 @@
 <div class="container"><h3>Список заметок</h3>
+		<div class="selection">
+				<mat-select placeholder="Base" (selectionChange)="someMethod($event.value)">
+						<mat-option value="{{ST.LocalStorage}}">Local Storage</mat-option>
+						<mat-option value="{{ST.Firebase}}">Firebase</mat-option>
+				</mat-select>
+		</div>
 		<div class="notes-list">
 				<div class="note-item-titles">
 						<div class="author"><p>Name</p></div>
@@ -6,6 +12,7 @@
 
 				</div>
 				<div class="note-item" *ngFor="let item of notes; let i=index" [routerLink]="['/note', item.id ]">
+
 						<div class="author"><p>{{item.name}}</p></div>
 						<div class="content"><p>{{item.content}}</p></div>
 						<div class="buttons">
@@ -14,17 +21,7 @@
 										<mat-icon>delete_forever
 										</mat-icon>
 								</button>
-<!--								<button title="edit" mat-stroked-button class="edit-btn"-->
-<!--												(click)="openDialog(i)">-->
-<!--										<mat-icon>edit</mat-icon>-->
-<!--								</button>-->
-<!--								<button title="comment" mat-stroked-button class="comment-btn"-->
-<!--												(click)="addComment(i)">-->
-<!--										<mat-icon>add_comment-->
-<!--										</mat-icon>-->
-<!--								</button>-->
 						</div>
-
 				</div>
 		</div>
 		<button title="add" mat-stroked-button class="add-btn" [routerLink]="['/new-note']">

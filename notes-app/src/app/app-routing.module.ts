@@ -22,12 +22,8 @@ const routes: Routes = [
             {
                 path: 'notes-list',
                 loadChildren: './notes/notes-list/notes-list.module#NotesListModule'
-            },
-            {
-                path: 'edit-note/:id',
-                loadChildren: './notes/edit-note/edit-note.module#EditNoteModule'
             }
-        ],
+        ]
     },
     {
         path: '**',

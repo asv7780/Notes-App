@@ -1,11 +1,61 @@
-<h1>
-  Note
-</h1>
-<p>Name: {{model | propertyView: 'name'}}</p>
-<p>Content: {{model | propertyView: 'content'}}</p>
-<!--<div *ngFor="let comment of model.comments">-->
-<!--  <p>{{comment | propertyView: 'author'}}</p>-->
-<!--  <p>{{comment | propertyView: 'content'}}</p>-->
-<!--  <p>{{comment.created | date: dateFormat}}</p>-->
-<!--</div>-->
-<!--<app-comment (onCommentCreated)="onCommentCreated($event)"></app-comment>-->
+<div class="container">
+		<h3>Note</h3>
+		<form [formGroup]="form" (ngSubmit)="saveChanges()">
+				<mat-form-field class="i-width">
+						<mat-label>Name</mat-label>
+						<label>
+								<input
+											type="text"
+											matInput
+											name="name"
+											formControlName="name">
+						</label>
+				</mat-form-field>
+
+
+				<mat-form-field class="i-width">
+						<mat-label>Content</mat-label>
+						<label>
+								<textarea class="col-6" matInput
+													name="content"
+													formControlName="content"
+													placeholder="Type content..."
+													cdkTextareaAutosize
+													cdkAutosizeMinRows="3"
+													required>
+</textarea>
+						</label>
+				</mat-form-field>
+				<div class="buttons">
+						<button type="submit">Save edit</button>
+						<button [routerLink]="['/notes-list']">Cancel</button>
+				</div>
+		</form>
+
+		<app-comment (commentCreated)="onCommentCreated($event)"></app-comment>
+		<div *ngIf="model">
+				<h5>Comments:</h5>
+				<div class="comment-titles">
+						<div class="author"><p>Author</p></div>
+						<div class="comment"><p>Comment</p></div>
+						<div class="data"><p>Created</p></div>
+						<div class="delete"></div>
+				</div>
+				<div class="comments" *ngFor="let comment of model.comments; let i=index">
+						<div class="comments-list">
+								<div class="comment-item">
+										<div class="author"><p>{{comment | propertyView: 'author'}}</p></div>
+										<div class="comment"><p>{{comment | propertyView: 'comment'}}</p></div>
+										<div class="data"><p>{{comment.created | date: dateFormat}}</p></div>
+										<div class="button">
+												<button title="delete" mat-stroked-button class="delete-btn"
+																(click)="deleteComment(i)">
+														<mat-icon>delete_forever
+														</mat-icon>
+												</button>
+										</div>
+								</div>
+						</div>
+				</div>
+		</div>
+</div>

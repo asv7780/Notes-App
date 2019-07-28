@@ -1,55 +1,52 @@
-import { Injectable } from '@angular/core';
-import { LocalStorageHelper } from '../helpers/local-storage.helper';
-import { FirebaseHelper } from '../helpers/firebase.helper';
-import { StorageType, Note } from '../models/note';
-import { VirtualStorageHelper } from '../abstract/virtual-storage.helper';
+import {Injectable} from '@angular/core';
+import {LocalStorageHelper} from '../helpers/local-storage.helper';
+import {FirebaseHelper} from '../helpers/firebase.helper';
+import {Note, StorageType} from '../models/note';
+import {VirtualStorageHelper} from '../abstract/virtual-storage.helper';
 
 @Injectable()
 export class NoteService implements VirtualStorageHelper<Note> {
-  private storageType: StorageType;
-  private readonly storageKey = 'storageType';
-  private service: VirtualStorageHelper<Note>;
+    private storageType: StorageType;
+    private readonly storageKey = 'storageType';
+    private service: VirtualStorageHelper<Note>;
+    public ST = StorageType;
 
-  constructor(private readonly localStorageHelper: LocalStorageHelper, private readonly firebaseHelper: FirebaseHelper) {
-    this.getCurrentStorageType();
-  }
-
-  private setService() {
-    switch (this.storageType) {
-      case StorageType.LocalStorage:
-        this.service = this.localStorageHelper;
-        break;
-
-      case StorageType.Firebase:
-        this.service = this.firebaseHelper;
-        break;
+    constructor(private readonly localStorageHelper: LocalStorageHelper, private readonly firebaseHelper: FirebaseHelper) {
+        this.getCurrentStorageType();
     }
-  }
 
-  private getCurrentStorageType() {
-    this.storageType = +localStorage.getItem(this.storageKey) as StorageType;
-
-    if (!this.storageType) {
-      this.storageType = StorageType.LocalStorage;
-      localStorage.setItem(this.storageKey, this.storageType.toString());
+    private setService() {
+        if (this.storageType == StorageType.LocalStorage) {
+            this.service = this.localStorageHelper;
+        } else if (this.storageType == StorageType.Firebase) {
+            this.service = this.firebaseHelper;
+        }
     }
-  }
 
-  public setData(model: Note): boolean {
-    this.storageType = model.storageType;
-    this.setService();
-    return this.service.setData(model);
-  }
+    private getCurrentStorageType() {
+        this.storageType = +localStorage.getItem(this.storageKey) as StorageType;
 
-  public getData(): Note[] {
-    this.getCurrentStorageType();
-    this.setService();
-    return this.service.getData();
-  }
+        if (!this.storageType) {
+            this.storageType = StorageType.LocalStorage;
+            localStorage.setItem(this.storageKey, this.storageType.toString());
+        }
+    }
 
-  public remove(model: Note) {
-    this.storageType = model.storageType;
-    this.setService();
-    this.service.remove(model);
-  }
+    public setData(model: Note): boolean {
+        this.storageType = model.storageType;
+        this.setService();
+        return this.service.setData(model);
+    }
+
+    public getData(): Note[] {
+        this.getCurrentStorageType();
+        this.setService();
+        return this.service.getData();
+    }
+
+    public remove(model: Note) {
+        this.storageType = model.storageType;
+        this.setService();
+        this.service.remove(model);
+    }
 }

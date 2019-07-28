@@ -1,5 +1,5 @@
 <div class="container">
-		<form [formGroup]="noteForm" #form="ngForm" (ngSubmit)="onSubmit(noteForm.value)">
+		<form [formGroup]="noteForm" #form (ngSubmit)="saveNote(noteForm.value)">
 				<h3>New note</h3>
 				<hr>
 				<div class="form-group">
@@ -27,7 +27,7 @@
 					formControlName="content"
 					placeholder="Type content..."
 					cdkTextareaAutosize
-					cdkAutosizeMinRows="10"
+					cdkAutosizeMinRows="3"
 					required>
 </textarea>
 								</label>
@@ -37,21 +37,29 @@
 						</mat-form-field>
 				</div>
 				<div class="selection">
-						<mat-select formControlName="storageType" placeholder="Save to..." >
-								<mat-option value="localStorage">Local Storage</mat-option>
-								<mat-option value="firebase">Firebase</mat-option>
+						<mat-select formControlName="storageType" placeholder="Save to...">
+								<mat-option value="{{ST.LocalStorage}}">Local Storage</mat-option>
+								<mat-option value="{{ST.Firebase}}">Firebase</mat-option>
 						</mat-select>
 				</div>
 
 				<div class="buttons">
-						<button title="clear" mat-stroked-button (click)="form.reset()"><mat-icon>cancel</mat-icon> Clear </button>
-						<button title="toList" mat-stroked-button [routerLink]="['/notes-list']" ><mat-icon>launch</mat-icon> To
+						<button title="clear" mat-stroked-button (click)="form.reset()">
+								<mat-icon>cancel</mat-icon>
+								Clear
+						</button>
+						<button title="toList" mat-stroked-button [routerLink]="['/notes-list']">
+								<mat-icon>launch</mat-icon>
+								To
 								notes
 						</button>
-						<button type="submit" mat-stroked-button [disabled]="isSubmitting"><mat-spinner
-									*ngIf="isSubmitting"
-																																														[diameter]="25"></mat-spinner> <mat-icon>sd_card</mat-icon> Save to...</button>
-
+						<button type="submit" mat-stroked-button [disabled]="isSubmitting">
+								<mat-spinner
+											*ngIf="isSubmitting"
+											[diameter]="25"></mat-spinner>
+								<mat-icon>sd_card</mat-icon>
+								Save to...
+						</button>
 				</div>
 		</form>
 </div>

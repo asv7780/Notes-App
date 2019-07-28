@@ -14,14 +14,16 @@ export class NewNoteComponent implements OnInit {
     model: Note;
     isSubmitting = false;
     noteForm: FormGroup;
+    ST = StorageType;
 
     constructor(private readonly route: ActivatedRoute, private readonly noteService: NoteService) {
-        let type = +localStorage.getItem('storageType');
+        let type = localStorage.getItem('storageType');
         this.noteForm = new FormGroup({
             id: new FormControl(Guid.newGuid()),
             name: new FormControl(String.Empty, Validators.required),
             content: new FormControl(String.Empty, Validators.required),
-            storageType: new FormControl(type ? type : StorageType.LocalStorage)
+            storageType: new FormControl(type ? type : StorageType.LocalStorage),
+            comments: new FormControl([])
         });
     }
 
@@ -33,7 +35,7 @@ export class NewNoteComponent implements OnInit {
         }
     }
 
-    onSubmit(form: any) {
+    saveNote(form: any) {
         if (!this.isSubmitting && this.noteForm.valid) {
             this.isSubmitting = true;
             this.noteService.setData(form);

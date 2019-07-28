@@ -16,16 +16,16 @@ export class Note {
         }
     }
 
-  public merge(note: Note): Note {
-    Object.getOwnPropertyNames(note).forEach(prop => {
-      this[prop] = note[prop];
-    });
+    public merge(note: Note): Note {
+        Object.getOwnPropertyNames(note).forEach(prop => {
+            this[prop] = note[prop];
+        });
 
-    return this;
-  }
+        return this;
+    }
 }
 
 export enum StorageType {
     LocalStorage = 1,
-    Firebase
+    Firebase = 2,
 }

@@ -1,3 +1,86 @@
+.container {
+  width: 500px;
+  border: 1px solid;
+  margin-bottom: 73px;
+  margin-top: 20px;
+  background: #edf3ed;
+}
+.container h3 {
+  text-align: center;
+  margin: 20px 0;
+}
+.container mat-form-field {
+  display: block;
+}
+.container mat-form-field label {
+  width: 100%;
+}
+.container .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
+.comments-list {
+  width: 100%;
+}
+.comments-list .author p, .comments-list .comment p, .comments-list .data p {
+  margin-bottom: 1px;
+}
+
+.comment-titles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.comment-titles .author {
+  width: 100px;
+}
+.comment-titles .comment {
+  min-width: 250px;
+  max-width: 290px;
+}
+
+.delete, .button {
+  width: 40px;
+}
+
+.comment-item {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 4px;
+  align-items: center;
+  border: 1px solid gray;
+  padding: 5px;
+  margin: 10px 0;
+  max-width: 490px;
+}
+.comment-item .author {
+  width: 100px;
+}
+.comment-item .comment {
+  min-width: 250px;
+  max-width: 290px;
+  white-space: normal;
+}
+.comment-item .button button {
+  min-width: 27px;
+  height: 27px;
+  margin: 5px;
+  padding: 0;
+}
+.comment-item .button button mat-icon {
+  margin-bottom: 10px;
+}
+
+.comment-titles {
+  border-bottom: 2px solid black;
+  color: black;
+  font-size: 16px;
+  height: 30px;
+}
 
 /*# sourceMappingURL=note.component.css.map */

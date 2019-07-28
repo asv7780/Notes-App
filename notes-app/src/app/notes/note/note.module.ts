@@ -4,6 +4,7 @@ import {NoteComponent} from './note.component';
 import {RouterModule} from '@angular/router';
 import {
     MatButtonModule,
+    MatCardModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
@@ -28,7 +29,8 @@ import {NoteService} from '../../../code/services/note.service';
         MatProgressSpinnerModule,
         MatInputModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        MatCardModule
     ],
     providers: [
         NoteService

@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"note.component.css"}
+{"version":3,"sourceRoot":"","sources":["note.component.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;;AAGF;EACE;;AAEA;EACE;;AAIJ;EACE;EACA;EACA;;;AAIJ;EACE;;AAEA;EACE;;;AAKJ;EACE;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;;AAGF;EACE;EACA;;;AAKJ;EACE;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;;AAGF;EACE;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;;AAEA;EACE;;;AAKN;EACE;EACA;EACA;EACA","file":"note.component.css"}

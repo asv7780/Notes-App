@@ -18,14 +18,14 @@ export class CommentFormValidators {
                 return {wrongWordsCount: true};
             }
         };
-    }
+    };
 
     public static WordsUppercaseValidator = (control: FormControl): ValidationErrors | null => {
         try {
             if (control.value) {
                 let inputValue = control.value.trim() as string;
 
-                if (inputValue.split(/\s+/).every(word => word === word.toUpperCase())) {
+                if (inputValue.split(/\s+/).some(word => word === word.toLowerCase())) {
                     return {wrongWordsCase: true};
                 }
             }
@@ -34,5 +34,5 @@ export class CommentFormValidators {
         } catch {
             return {wrongWordsCase: true};
         }
-    }
+    };
 }

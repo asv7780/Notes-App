@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Note} from '../../../code/models/note';
+import {Note, StorageType} from '../../../code/models/note';
 import {NoteService} from '../../../code/services/note.service';
-import {MatDialog} from '@angular/material';
+
 
 @Component({
     selector: 'app-notes-list',
@@ -12,18 +12,20 @@ import {MatDialog} from '@angular/material';
 
 export class NotesListComponent implements OnInit {
     private notes: Note[];
-
+    public ST = StorageType;
+    private readonly storageKey = 'storageType';
 
     constructor(private noteService: NoteService) {
     }
 
     ngOnInit(): void {
         this.getNotes();
+
     }
 
     public getNotes(): void {
+        localStorage.setItem(this.storageKey, this.ST.LocalStorage.toString());
         this.notes = this.noteService.getData();
-
     }
 
     private deleteItem(index) {
@@ -31,11 +33,15 @@ export class NotesListComponent implements OnInit {
     }
 
 
-    // onSelected(item: Note) {
-    //     if (item) {
-    //         this.router.navigate(['/note'])
-    //     }
-    // }
+    someMethod(value: StorageType) {
+        if (value == this.ST.LocalStorage) {
+            localStorage.setItem(this.storageKey, this.ST.LocalStorage.toString());
+            this.notes = this.noteService.getData();
+        } else if (value == this.ST.Firebase) {
+            localStorage.setItem(this.storageKey, this.ST.Firebase.toString());
+            this.notes = this.noteService.getData();
+        }
+    }
 }
 
 

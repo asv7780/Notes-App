@@ -18,11 +18,9 @@
 }
 .container .note-item-titles .buttons, .container .note-item .buttons {
   display: flex;
-  max-width: 207px;
-  width: 100%;
   justify-content: space-between;
 }
-.container .note-item-titles .buttons .delete, .container .note-item-titles .buttons .edit, .container .note-item .buttons .delete, .container .note-item .buttons .edit {
+.container .note-item-titles .buttons .delete, .container .note-item .buttons .delete {
   width: 50%;
   text-align: center;
 }
@@ -49,6 +47,17 @@
 }
 .container .add-btn {
   margin-left: 10px;
+}
+
+.selection {
+  height: 35px;
+  display: flex;
+  margin: 5px;
+  justify-content: flex-end;
+}
+
+mat-select {
+  max-width: 125px;
 }
 
 /*# sourceMappingURL=notes-list.component.css.map */

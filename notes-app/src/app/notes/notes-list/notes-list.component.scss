@@ -20,11 +20,9 @@
 
     .buttons {
       display: flex;
-      max-width: 207px;
-      width: 100%;
       justify-content: space-between;
 
-      .delete, .edit {
+      .delete {
         width: 50%;
         text-align: center;
       }
@@ -60,6 +58,17 @@
   .add-btn {
     margin-left: 10px;
   }
-
 }
+
+.selection {
+  height: 35px;
+  display: flex;
+  margin: 5px;
+  justify-content: flex-end;
+}
+
+mat-select {
+  max-width: 125px;
+}
+
 

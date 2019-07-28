@@ -6,10 +6,11 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {
     MatButtonModule,
     MatFormFieldModule,
+    MatIconModule,
     MatInputModule,
-    MatRadioModule,
     MatProgressSpinnerModule,
-    MatIconModule, MatSelectModule
+    MatRadioModule,
+    MatSelectModule
 } from '@angular/material';
 import {NoteService} from '../../../code/services/note.service';
 
